@@ -1,18 +1,9 @@
 <div class="wrapper">
-  <lbd-sidebar
-    [headerText]="'Creative Tim'"
-    [headerLink]="'http://www.creative-tim.com'"
-    [headerLogoImg]="'/assets/img/angular2-logo-white.png'"
-    [backgroundColor]="'red'"
-    [backgroundImg]="'/assets/img/sidebar-5.jpg'"
-    [navItems]="navItems">
-  </lbd-sidebar>
+    <lbd-sidebar [headerText]="'nastasia'" [headerLink]="'http://www.creative-tim.com'" [headerLogoImg]="'/assets/img/angular2-logo-white.png'" [backgroundColor]="'grey'" [backgroundImg]="'/assets/img/sidebar-4.jpg'" [navItems]="navItems">
+    </lbd-sidebar>
 
-  <div class="main-panel">
-    <lbd-navbar [navItems]="navItems"></lbd-navbar>
-
-
-  </div>
-
-  <lbd-close-layer></lbd-close-layer>
+    <div class="main-panel">
+        <router-outlet></router-outlet>
+    </div>
+    <lbd-close-layer></lbd-close-layer>
 </div>

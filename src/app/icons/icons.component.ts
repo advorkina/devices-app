@@ -4,7 +4,7 @@ import { NavbarTitleService } from '../lbd/services/navbar-title.service';
 @Component({
   selector: 'app-icons',
   templateUrl: './icons.component.html',
-  styleUrls: ['./icons.component.css'],
+  styleUrls: ['./icons.component.scss'],
   animations: [
     trigger('cardicons', [
       state('*', style({
