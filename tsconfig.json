@@ -15,5 +15,10 @@
       "es2016",
       "dom"
     ]
-  }
+  },
+   "typeAcquisition": {
+     "include": [
+         "jquery"
+     ]
+   }
 }
