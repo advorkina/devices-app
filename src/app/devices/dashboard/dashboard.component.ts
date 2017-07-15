@@ -52,23 +52,18 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 
 export class DashboardComponent implements OnInit {
-  public emailChartType: ChartType;
-  public emailChartData: any;
-  public emailChartLegendItems: LegendItem[];
+  options = {
+    low: 0,
+    showArea: true
+  };
+  data = {
+    'labels': ['01.07', '02.07', '03.07', '04.07'],
+    'series': [[20, 50, 60, 30]]
+  };
 
   constructor() { }
 
   ngOnInit() {
-    this.emailChartType = ChartType.Pie;
-    this.emailChartData = {
-      labels: ['62%', '32%', '6%'],
-      series: [62, 32, 6]
-    };
-    this.emailChartLegendItems = [
-      { title: 'Open', imageClass: 'fa fa-circle text-info' },
-      { title: 'Bounce', imageClass: 'fa fa-circle text-danger' },
-      { title: 'Unsubscribe', imageClass: 'fa fa-circle text-warning' }
-    ];
   }
 }
 

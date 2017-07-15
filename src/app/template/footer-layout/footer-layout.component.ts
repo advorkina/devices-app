@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { FooterItem } from '../lbd/lbd-footer/lbd-footer.component';
+import { FooterItem } from '../../lbd/lbd-footer/lbd-footer.component';
 
 @Component({
   selector: 'app-footer-layout',

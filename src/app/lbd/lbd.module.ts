@@ -19,7 +19,7 @@ import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
 import { ChartistModule } from 'ng-chartist/src/chartist.component';
 
-import { LbdSidebarComponent } from './lbd-sidebar/lbd-sidebar.component';
+import { LbdSidebarComponent } from '../template/lbd-sidebar/lbd-sidebar.component';
 import { LbdNavbarComponent } from './lbd-navbar/lbd-navbar.component';
 import { LbdFooterComponent } from './lbd-footer/lbd-footer.component';
 import { LbdChartComponent } from './lbd-chart/lbd-chart.component';
@@ -32,7 +32,7 @@ import { LbdCheckboxComponent } from './lbd-checkbox/lbd-checkbox.component';
 import { MobileSidebarToggleService } from './services/mobile-sidebar-toggle.service';
 import { LbdCloseLayerComponent } from './lbd-close-layer/lbd-close-layer.component';
 import { LbdNavbarItemsComponent } from './lbd-navbar-items/lbd-navbar-items.component';
-import { LbdSidebarItemsComponent } from './lbd-sidebar-items/lbd-sidebar-items.component';
+import { LbdSidebarItemsComponent } from '../template/lbd-sidebar-items/lbd-sidebar-items.component';
 
 export interface DropdownLink {
   title: string;

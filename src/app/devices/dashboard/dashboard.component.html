@@ -1,19 +1,58 @@
 <div class="container-fluid">
     <div class="row">
         <div class="col-md-6" [@cardprofile]>
-            <lbd-user-profile [backgroundImage]="'https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'" [avatarImage]="'assets/img/faces/face-3.jpg'" [name]="'Mike Andrew'" [username]="'michael24'" [about]="'klgjdb dkfjghdjkg dkfjghdg '"></lbd-user-profile>
+            <div class="card card-user">
+                <div class="image">
+                    <img [src]="'https://images.unsplash.com/photo-1455612693675-112974d4880b?dpr=2&auto=compress,format&fit=crop&w=376&h=251&q=80&cs=tinysrgb&crop='" alt="..." />
+                </div>
+                <div class="content">
+                    <p class="description text-center">
+                        How many devices do I have in total?
+                    </p>
+                    <h1 class="text-center big">4</h1>
+                </div>
+            </div>
         </div>
         <div class="col-md-6" [@cardprofile]>
-            <lbd-user-profile [backgroundImage]="'https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'" [avatarImage]="'assets/img/faces/face-3.jpg'" [name]="'Mike Andrew'" [username]="'michael24'" [about]="'klgjdb dkfjghdjkg dkfjghdg '"></lbd-user-profile>
+            <div class="card card-user">
+                <div class="image">
+                    <img [src]="'https://images.unsplash.com/photo-1487017159836-4e23ece2e4cf?dpr=2&auto=compress,format&fit=crop&w=376&h=251&q=80&cs=tinysrgb&crop='" alt="..." />
+                </div>
+                <div class="content">
+                    <p class="description text-center">
+                        How many devices are currently working?
+                    </p>
+                    <h1 class="text-center big">3</h1>
+                </div>
+            </div>
         </div>
     </div>
     <div class="row">
         <div class="col-md-6" [@cardprofile]>
-            <lbd-user-profile [backgroundImage]="'https://ununsplash.imgix.net/photo-1431578500526-4d9613015464?fit=crop&fm=jpg&h=300&q=75&w=400'" [avatarImage]="'assets/img/faces/face-3.jpg'" [name]="'Mike Andrew'" [username]="'michael24'" [about]="'klgjdb dkfjghdjkg dkfjghdg '"></lbd-user-profile>
+            <div class="card card-user">
+                <div class="image">
+                    <img [src]="'https://images.unsplash.com/uploads/141103282695035fa1380/95cdfeef?dpr=2&auto=compress,format&fit=crop&w=376&h=193&q=80&cs=tinysrgb&crop='" alt="..." />
+                </div>
+                <div class="content">
+                    <p class="description text-center">
+                        How much power all your devices consume?
+                    </p>
+                    <h1 class="text-center big">35 KW</h1>
+                </div>
+            </div>
         </div>
-        <div class="col-md-6" [@cardemail]>
-            <lbd-chart [title]="'Email Statistics'" [subtitle]="'Last Campaign Performance'" [chartClass]="'ct-perfect-fourth'" [chartType]="emailChartType" [chartData]="emailChartData" [legendItems]="emailChartLegendItems" [footerIconClass]="'fa fa-clock-o'" [footerText]="'Campaign sent 2 days ago'">
-            </lbd-chart>
+        <div class="col-md-6" [@cardprofile]>
+            <div class="card card-user">
+                <div class="image">
+                    <img [src]="'https://images.unsplash.com/photo-1424298397478-4bd87a6a0f0c?dpr=2&auto=compress,format&fit=crop&w=376&h=251&q=80&cs=tinysrgb&crop='" alt="..." />
+                </div>
+                <div class="content">
+                    <p class="description text-center">
+                        How much power all your devices consume?
+                    </p>
+                    <x-chartist class="col-md-12" [data]="data" [type]="'Line'" [options]="options"></x-chartist>
+                </div>
+            </div>
         </div>
     </div>
 </div>

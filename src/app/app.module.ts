@@ -6,12 +6,14 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LbdModule } from './lbd/lbd.module';
-import { FooterLayoutComponent } from './footer-layout/footer-layout.component';
+import { FooterLayoutComponent } from './template/footer-layout/footer-layout.component';
 import { DashboardComponent } from './devices/dashboard/dashboard.component';
 import { DevicesListComponent } from './devices/devices-list/devices-list.component';
 import { IconsComponent } from './icons/icons.component';
 import { AppComponent } from './app.component';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';
+import { DeviceDetailsComponent } from './devices/details/device-details.component';
+import { ChartistModule } from 'ng-chartist/src/chartist.component';
 
 const appRoutes: Routes = [
   {
@@ -19,6 +21,7 @@ const appRoutes: Routes = [
     [
       { path: 'dashboard', component: DashboardComponent },
       { path: 'devices-list', component: DevicesListComponent },
+      { path: 'device-details/:id', component: DeviceDetailsComponent },
       { path: '**', redirectTo: 'dashboard' }
     ]
   }
@@ -30,8 +33,9 @@ const appRoutes: Routes = [
     FooterLayoutComponent,
     DashboardComponent,
     DevicesListComponent,
+    DeviceDetailsComponent,
     IconsComponent,
-    AppComponent,
+    AppComponent
   ],
   imports: [
     BrowserModule,
@@ -39,11 +43,12 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     LbdModule,
-    BrowserAnimationsModule
+    BrowserAnimationsModule,
+    ChartistModule
   ],
   providers: [],
   bootstrap: [AppComponent],
-  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA ]
+  schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
 
 export class AppModule { }

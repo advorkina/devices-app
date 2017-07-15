@@ -1,0 +1,27 @@
+{
+    "data": [{
+        "id": 1,
+        "name": "Kitchen Aid",
+        "room": "Kitchen"
+    }, {
+        "id": 2,
+        "name": "Mixer",
+        "room": "Kitchen"
+    }, {
+        "id": 3,
+        "name": "Coffee Machine",
+        "room": "Kitchen"
+    }, {
+        "id": 4,
+        "name": "TV",
+        "room": "Living Room"
+    }, {
+        "id": 5,
+        "name": "Spotify",
+        "room": "Living Room"
+    }, {
+        "id": 6,
+        "name": "Samsung Light",
+        "room": "Bedroom"
+    }]
+}

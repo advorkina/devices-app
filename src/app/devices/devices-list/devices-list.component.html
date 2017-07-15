@@ -17,7 +17,7 @@
                         </thead>
                         <tbody>
                             <tr *ngFor="let row of tableData.dataRows">
-                                <td *ngFor="let cell of row">{{ cell }}</td>
+                                <td *ngFor="let cell of row"><a [routerLink]="['/device-details', 1]">{{ cell }}</a></td>
                                 <td>
                                     <switch [status]="'true'" [onText]="'On'" [offText]="'Off'" [onColor]="'green'" [offColor]="'gray'"></switch>
                                 </td>
