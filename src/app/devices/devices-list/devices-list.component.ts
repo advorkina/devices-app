@@ -3,8 +3,8 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { NavbarTitleService } from '../lbd/services/navbar-title.service';
-import { TableData } from '../lbd/lbd-table/lbd-table.component';
+import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
+import { TableData } from '../../lbd/lbd-table/lbd-table.component';
 
 @Component({
   selector: 'app-devices-list',

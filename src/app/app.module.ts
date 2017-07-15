@@ -7,8 +7,8 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LbdModule } from './lbd/lbd.module';
 import { FooterLayoutComponent } from './footer-layout/footer-layout.component';
-import { DashboardComponent } from './dashboard/dashboard.component';
-import { DevicesListComponent } from './devices-list/devices-list.component';
+import { DashboardComponent } from './devices/dashboard/dashboard.component';
+import { DevicesListComponent } from './devices/devices-list/devices-list.component';
 import { IconsComponent } from './icons/icons.component';
 import { AppComponent } from './app.component';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';

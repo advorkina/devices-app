@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { ChartType, LegendItem } from '../lbd/lbd-chart/lbd-chart.component';
+import { ChartType, LegendItem } from '../../lbd/lbd-chart/lbd-chart.component';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 
 @Component({
