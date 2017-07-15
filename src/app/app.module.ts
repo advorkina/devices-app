@@ -8,6 +8,7 @@ import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { LbdModule } from './lbd/lbd.module';
 import { FooterLayoutComponent } from './footer-layout/footer-layout.component';
 import { DashboardComponent } from './dashboard/dashboard.component';
+import { DevicesListComponent } from './devices-list/devices-list.component';
 import { IconsComponent } from './icons/icons.component';
 import { AppComponent } from './app.component';
 
@@ -16,6 +17,7 @@ const appRoutes: Routes = [
     path: '', component: FooterLayoutComponent, children:
     [
       { path: 'dashboard', component: DashboardComponent },
+      { path: 'devices-list', component: DevicesListComponent },
       { path: '**', redirectTo: 'dashboard' }
     ]
   }
@@ -25,6 +27,7 @@ const appRoutes: Routes = [
   declarations: [
     FooterLayoutComponent,
     DashboardComponent,
+    DevicesListComponent,
     IconsComponent,
     AppComponent
   ],
