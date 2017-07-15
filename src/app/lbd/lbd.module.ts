@@ -17,6 +17,7 @@
 import { NgModule } from '@angular/core';
 import { CommonModule } from '@angular/common';
 import { RouterModule } from '@angular/router';
+import { ChartistModule } from 'ng-chartist/src/chartist.component';
 
 import { LbdSidebarComponent } from './lbd-sidebar/lbd-sidebar.component';
 import { LbdNavbarComponent } from './lbd-navbar/lbd-navbar.component';
@@ -57,6 +58,7 @@ export interface NavItem {
   imports: [
     CommonModule,
     RouterModule,
+    ChartistModule
   ],
   providers: [NotificationService, NavbarTitleService, MobileSidebarToggleService],
   declarations: [

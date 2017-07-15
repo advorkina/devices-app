@@ -1,4 +1,5 @@
 import {Component, Input, OnInit, AfterViewInit, ChangeDetectionStrategy} from '@angular/core';
+import * as Chartist from 'chartist';
 
 export interface LegendItem {
   title: string;
@@ -63,13 +64,13 @@ export class LbdChartComponent implements OnInit, AfterViewInit {
 
     switch (this.chartType) {
       case ChartType.Pie:
-        Chartist.Pie(...params);
+        //Chartist.Pie(...params);
         break;
       case ChartType.Line:
-        Chartist.Line(...params);
+        //Chartist.Line(...params);
         break;
       case ChartType.Bar:
-        Chartist.Bar(...params);
+        //Chartist.Bar(...params);
         break;
     }
   }
