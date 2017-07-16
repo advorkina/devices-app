@@ -1,10 +1,9 @@
 import { Component, OnInit } from '@angular/core';
-import { NavItem, NavItemType } from './lbd/lbd.module';
+import { NavItem, NavItemType } from './template/lbd/lbd.module';
 
 @Component({
   selector: 'app-root',
-  templateUrl: './app.component.html',
-  styleUrls: ['./app.component.css']
+  templateUrl: './app.component.html'
 })
 export class AppComponent implements OnInit {
   public navItems: NavItem[];

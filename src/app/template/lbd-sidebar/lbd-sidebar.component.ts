@@ -1,5 +1,5 @@
 import {Component, Input, ChangeDetectionStrategy} from '@angular/core';
-import { NavItem, NavItemType } from '../../lbd/lbd.module';
+import { NavItem, NavItemType } from '../lbd/lbd.module';
 
 export type BackgroundColor = 'blue' | 'azure' | 'green' | 'orange' | 'red' | 'purple';
 

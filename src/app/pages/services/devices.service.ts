@@ -1,8 +1,8 @@
 import { Injectable } from '@angular/core';
 import { Http, Response } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { IDevice } from '../../models/device.interface';
-import { IDevicePowerUsage } from '../../models/device-power-usage.interface';
+import { IDevice } from '../../shared/models/device.interface';
+import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
 
 @Injectable()
 export class DevicesService {

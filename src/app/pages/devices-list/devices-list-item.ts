@@ -1,4 +1,4 @@
-import { IDevice } from '../../models/device.interface';
+import { IDevice } from '../../shared/models/device.interface';
 
 export interface IDeviceListItem {
   device: IDevice;

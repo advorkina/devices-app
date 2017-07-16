@@ -3,12 +3,11 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
-import { TableData } from '../../lbd/lbd-table/lbd-table.component';
+import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
 import { IRoomWithDevices } from './room-with-devices.interface';
 import { DevicesService } from '../services/devices.service';
 import { NotificationsService } from 'angular2-notifications';
-import { IDevice } from "../../models/device.interface";
+import { IDevice } from '../../shared/models/device.interface';
 
 @Component({
   selector: 'app-devices-list',
@@ -63,7 +62,7 @@ export class DevicesListComponent implements OnInit {
             room.devices.push({
               device: d,
               usageKW: this._devicesService.getUsage(d.id).map(u => u.KW).reduce((a, b) => a + b, 0)
-        });});
+        }); });
 
         this.rooms.push(room);
       });

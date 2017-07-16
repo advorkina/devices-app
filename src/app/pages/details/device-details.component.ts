@@ -3,10 +3,10 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ActivatedRoute } from '@angular/router';
-import { IDevice } from '../../models/device.interface';
+import { IDevice } from '../../shared/models/device.interface';
 import { DevicesService } from '../services/devices.service';
-import { IDevicePowerUsage } from '../../models/device-power-usage.interface';
-import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
+import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
+import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
 import { NotificationsService } from 'angular2-notifications';
 
 @Component({

@@ -5,18 +5,18 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
-import { LbdModule } from './lbd/lbd.module';
+import { LbdModule } from './template/lbd/lbd.module';
 import { TemplateModule } from './template/template.module';
 import { FooterLayoutComponent } from './template/footer-layout/footer-layout.component';
-import { DashboardComponent } from './devices/dashboard/dashboard.component';
-import { DevicesListComponent } from './devices/devices-list/devices-list.component';
-import { IconsComponent } from './icons/icons.component';
+import { DashboardComponent } from './pages/dashboard/dashboard.component';
+import { DevicesListComponent } from './pages/devices-list/devices-list.component';
+import { IconsComponent } from './template/icons/icons.component';
 import { AppComponent } from './app.component';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';
-import { DeviceDetailsComponent } from './devices/details/device-details.component';
+import { DeviceDetailsComponent } from './pages/details/device-details.component';
 import { ChartistModule } from 'ng-chartist/src/chartist.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import { PowerUsageChartComponent } from './devices/power-usage-chart/power-usage-chart.component';
+import { PowerUsageChartComponent } from './pages/power-usage-chart/power-usage-chart.component';
 
 const appRoutes: Routes = [
   {
