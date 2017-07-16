@@ -6,7 +6,6 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
 import { IRoomWithDevices } from './room-with-devices.interface';
 import { DevicesService } from '../services/devices.service';
-import { NotificationsService } from 'angular2-notifications';
 import { IDevice } from '../../shared/models/device.interface';
 
 @Component({
@@ -43,7 +42,6 @@ export class DevicesListComponent implements OnInit {
 
   constructor(
     private _navbarTitleService: NavbarTitleService,
-    private _notificationService: NotificationsService,
     private _devicesService: DevicesService) {
   }
 
@@ -67,19 +65,5 @@ export class DevicesListComponent implements OnInit {
         this.rooms.push(room);
       });
     });
-  }
-
-  toggleOnOff(device: IDevice): void {
-    device.isOn = !device.isOn;
-    this._notificationService.success(
-      'Success',
-      device.name + ' is ' + (device.isOn ? 'ON' : 'OFF'),
-      {
-        showProgressBar: true,
-        pauseOnHover: false,
-        clickToClose: true,
-        maxLength: 20
-      }
-    );
   }
 }

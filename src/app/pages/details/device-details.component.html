@@ -3,7 +3,7 @@
         <div class="col-md-12">
             <div class="card" style="transform: translate3d(0px, 0px, 0px); opacity: 1;">
                 <div class="header">
-                    <a class="btn btn-default" [routerLink]="['details-list']">
+                    <a class="btn btn-default" [routerLink]="['/devices-list']">
                         <i class="pe-7s-back"></i> To Details List
                     </a>
                 </div>
@@ -15,7 +15,7 @@
                                     <td style="width: 40%">Device: {{device.name}} </td>
                                     <td>{{totalUsage}} KW</td>
                                     <td align="right">
-                                        <switch (click)="toggleOnOff(device)" [status]="'true'" [onText]="'On'" [offText]="'Off'" [onColor]="'green'" [offColor]="'gray'" style="display: block"></switch>
+                                        <app-power-switch [device]="device"></app-power-switch>
                                     </td>
                                 </tr>
                             </tbody>

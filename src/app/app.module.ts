@@ -16,7 +16,8 @@ import { SwitchComponent } from 'angular2-bootstrap-switch/components';
 import { DeviceDetailsComponent } from './pages/details/device-details.component';
 import { ChartistModule } from 'ng-chartist/src/chartist.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import { PowerUsageChartComponent } from './pages/power-usage-chart/power-usage-chart.component';
+import { PowerUsageChartComponent } from './pages/components/power-usage-chart/power-usage-chart.component';
+import { PowerSwitchComponent } from './pages/components/power-switch/power-switch.component';
 
 const appRoutes: Routes = [
   {
@@ -39,7 +40,8 @@ const appRoutes: Routes = [
     DeviceDetailsComponent,
     IconsComponent,
     AppComponent,
-    PowerUsageChartComponent
+    PowerUsageChartComponent,
+    PowerSwitchComponent
   ],
   imports: [
     BrowserModule,

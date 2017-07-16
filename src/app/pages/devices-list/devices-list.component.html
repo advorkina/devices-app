@@ -13,7 +13,7 @@
                                 <td style="width: 40%"><a [routerLink]="['/device-details', device.device.id]">{{ device.device.name }}</a></td>
                                 <td>{{device.usageKW}} KW</td>
                                 <td align="right">
-                                    <switch (click)="toggleOnOff(device)" [status]="device.device.isOn" [onText]="'On'" [offText]="'Off'" [onColor]="'green'" [offColor]="'gray'"></switch>
+                                    <app-power-switch [device]="device.device"></app-power-switch>
                                 </td>
                             </tr>
                         </tbody>
