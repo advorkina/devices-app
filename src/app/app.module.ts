@@ -6,6 +6,7 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 
 import { LbdModule } from './lbd/lbd.module';
+import { TemplateModule } from './template/template.module';
 import { FooterLayoutComponent } from './template/footer-layout/footer-layout.component';
 import { DashboardComponent } from './devices/dashboard/dashboard.component';
 import { DevicesListComponent } from './devices/devices-list/devices-list.component';
@@ -44,6 +45,7 @@ const appRoutes: Routes = [
     HttpModule,
     RouterModule.forRoot(appRoutes),
     LbdModule,
+    TemplateModule,
     BrowserAnimationsModule,
     ChartistModule,
     SimpleNotificationsModule.forRoot()

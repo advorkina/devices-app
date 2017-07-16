@@ -9,7 +9,7 @@
                     <p class="description text-center">
                         How many devices do I have in total?
                     </p>
-                    <h1 class="text-center big">4</h1>
+                    <h1 class="text-center big">{{totalDevicesNumber}}</h1>
                 </div>
             </div>
         </div>
@@ -20,9 +20,9 @@
                 </div>
                 <div class="content">
                     <p class="description text-center">
-                        How many devices are currently working?
+                        How many devices are currently ON?
                     </p>
-                    <h1 class="text-center big">3</h1>
+                    <h1 class="text-center big">{{switchedOnDevicesNumber}}</h1>
                 </div>
             </div>
         </div>
@@ -35,9 +35,9 @@
                 </div>
                 <div class="content">
                     <p class="description text-center">
-                        How much power all your devices consume?
+                        How much power do all your devices consume?
                     </p>
-                    <h1 class="text-center big">35 KW</h1>
+                    <h1 class="text-center big">700 KW</h1>
                 </div>
             </div>
         </div>
@@ -48,7 +48,7 @@
                 </div>
                 <div class="content">
                     <p class="description text-center">
-                        How much power all your devices consume?
+                        How does the power usage curve look like?
                     </p>
                     <x-chartist class="col-md-12" [data]="data" [type]="'Line'" [options]="options"></x-chartist>
                 </div>

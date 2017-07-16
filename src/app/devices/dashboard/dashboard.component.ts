@@ -1,10 +1,12 @@
 import { Component, OnInit } from '@angular/core';
 import { ChartType, LegendItem } from '../../lbd/lbd-chart/lbd-chart.component';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
+import { DevicesService } from '../services/devices.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
+  providers: [DevicesService],
   animations: [
     trigger('cardemail', [
       state('*', style({
@@ -52,6 +54,9 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 })
 
 export class DashboardComponent implements OnInit {
+  public totalDevicesNumber: number;
+  public switchedOnDevicesNumber: number;
+
   options = {
     low: 0,
     showArea: true
@@ -61,9 +66,18 @@ export class DashboardComponent implements OnInit {
     'series': [[20, 50, 60, 30]]
   };
 
-  constructor() { }
+  constructor(
+    private _devicesService: DevicesService) { }
 
   ngOnInit() {
+    this._devicesService.getAll().subscribe(devices => {
+      this.totalDevicesNumber = devices.length;
+      this.switchedOnDevicesNumber = devices.filter(d => d.isOn).length;
+
+      const devicePowerUsages = this._devicesService.getUsage(1);
+      this.data.labels = devicePowerUsages.map(i => i.date);
+      this.data.series[0] = devicePowerUsages.map(i => i.KW);
+    });
   }
 }
 
