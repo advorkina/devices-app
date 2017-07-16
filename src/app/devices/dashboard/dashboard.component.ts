@@ -57,26 +57,12 @@ export class DashboardComponent implements OnInit {
   public totalDevicesNumber: number;
   public switchedOnDevicesNumber: number;
 
-  options = {
-    low: 0,
-    showArea: true
-  };
-  data = {
-    'labels': ['01.07', '02.07', '03.07', '04.07'],
-    'series': [[20, 50, 60, 30]]
-  };
-
-  constructor(
-    private _devicesService: DevicesService) { }
+  constructor(private _devicesService: DevicesService) { }
 
   ngOnInit() {
     this._devicesService.getAll().subscribe(devices => {
       this.totalDevicesNumber = devices.length;
       this.switchedOnDevicesNumber = devices.filter(d => d.isOn).length;
-
-      const devicePowerUsages = this._devicesService.getUsage(1);
-      this.data.labels = devicePowerUsages.map(i => i.date);
-      this.data.series[0] = devicePowerUsages.map(i => i.KW);
     });
   }
 }

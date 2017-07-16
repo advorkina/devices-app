@@ -7,7 +7,7 @@ import { IDevice } from '../../models/device.interface';
 import { DevicesService } from '../services/devices.service';
 import { IDevicePowerUsage } from '../../models/device-power-usage.interface';
 import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
-import { NotificationsService } from "angular2-notifications";
+import { NotificationsService } from 'angular2-notifications';
 
 @Component({
   selector: 'app-device-details',
@@ -24,14 +24,6 @@ export class DeviceDetailsComponent implements OnInit, OnDestroy {
     isOn: false
   };
   totalUsage: number;
-  options = {
-    low: 0,
-    showArea: true
-  };
-  data = {
-    'labels': [],
-    'series': [[]]
-  };
 
   private sub: any;
 
@@ -49,11 +41,7 @@ export class DeviceDetailsComponent implements OnInit, OnDestroy {
         this._navbarTitleService.updateTitle(this.device.name + ' ( ' + this.device.room + ' )');
       });
 
-      const devicePowerUsages = this._devicesService.getUsage(this.id);
-      this.data.labels = devicePowerUsages.map(i => i.date);
-      this.data.series[0] = devicePowerUsages.map(i => i.KW);
-
-      this.totalUsage = devicePowerUsages.map(u => u.KW).reduce((a, b) => a + b, 0);
+      this.totalUsage = this._devicesService.getUsage(this.id).map(u => u.KW).reduce((a, b) => a + b, 0);
       // In a real app: dispatch action to load the details here.
     });
   }

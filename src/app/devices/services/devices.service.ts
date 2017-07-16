@@ -27,7 +27,7 @@ export class DevicesService {
     const usages: IDevicePowerUsage[] = [];
     for (let i = 0; i < 8; i++) {
       usages.push({
-        date: '0' + (i + 1) + '.07.2017',
+        date: '0' + (i + 1) + '.07',
         id: id,
         KW: Math.floor(Math.random() * 100) + 1
       });
