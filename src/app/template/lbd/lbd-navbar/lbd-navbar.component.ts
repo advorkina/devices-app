@@ -26,9 +26,9 @@ export class LbdNavbarComponent implements OnInit {
       this.cd.markForCheck();
     });
 
-  //   this.mobileSidebarToggleService.mobileSidebarVisibilityChanged$.subscribe(visible => {
-  //     visible ? this.openMobileNav() : this.closeMobileNav();
-  //   });
+    this.mobileSidebarToggleService.mobileSidebarVisibilityChanged$.subscribe(visible => {
+      visible ? this.openMobileNav() : this.closeMobileNav();
+    });
    }
 
   public get leftNavItems(): NavItem[] {
@@ -45,25 +45,25 @@ export class LbdNavbarComponent implements OnInit {
       this.mobileSidebarToggleService.updateVisibility(true);
   }
 
-  // private closeMobileNav() {
-  //   $('html').removeClass('nav-open');
-  //   this.mobileSidebarOpen = false;
-  //   this.cd.markForCheck();
+  private closeMobileNav() {
+    // $('html').removeClass('nav-open');
+    this.mobileSidebarOpen = false;
+    this.cd.markForCheck();
 
-  //   setTimeout(() => {
-  //     this.navCloseIcon = false;
-  //     this.cd.markForCheck();
-  //   }, 400);
-  // }
+    setTimeout(() => {
+      this.navCloseIcon = false;
+      this.cd.markForCheck();
+    }, 400);
+  }
 
-  // private openMobileNav() {
-  //   $('html').addClass('nav-open');
-  //   this.mobileSidebarOpen = true;
-  //   this.cd.markForCheck();
+  private openMobileNav() {
+    // $('html').addClass('nav-open');
+    this.mobileSidebarOpen = true;
+    this.cd.markForCheck();
 
-  //   setTimeout(() => {
-  //     this.navCloseIcon = true;
-  //     this.cd.markForCheck();
-  //   }, 430);
-  // }
+    setTimeout(() => {
+      this.navCloseIcon = true;
+      this.cd.markForCheck();
+    }, 430);
+  }
 }
