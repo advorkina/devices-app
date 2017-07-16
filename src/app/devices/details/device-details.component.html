@@ -3,33 +3,29 @@
         <div class="col-md-12">
             <div class="card" style="transform: translate3d(0px, 0px, 0px); opacity: 1;">
                 <div class="header">
-                    <h4 class="title">Device Details</h4>
+                    <a class="btn btn-default" [routerLink]="['details-list']">
+                        <i class="pe-7s-back"></i> To Details List
+                    </a>
                 </div>
                 <div class="content">
-                    <form>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Current Usage (disabled)</label>
-                                    <input class="form-control" disabled="" type="text" value="{{device.name}}">
-                                </div>
-                            </div>
+                    <div class="content table-responsive table-full-width">
+                        <table class="table table-hover table-striped">
+                            <tbody>
+                                <tr>
+                                    <td style="width: 40%">Device: {{device.name}} </td>
+                                    <td>{{totalUsage}} KW</td>
+                                    <td align="right">
+                                        <switch (click)="toggleOnOff(device)" [status]="'true'" [onText]="'On'" [offText]="'Off'" [onColor]="'green'" [offColor]="'gray'" style="display: block"></switch>
+                                    </td>
+                                </tr>
+                            </tbody>
+                        </table>
+                    </div>
+                    <div class="row">
+                        <div class="col-md-12">
+                            <x-chartist class="col-md-12" [data]="data" [type]="'Line'" [options]="options"></x-chartist>
                         </div>
-                        <div class="row">
-                            <div class="col-md-6">
-                                <div class="form-group">
-                                    <label>Current Usage (disabled)</label>
-                                    <switch [status]="'true'" [onText]="'On'" [offText]="'Off'" [onColor]="'green'" [offColor]="'gray'" style="display: block"></switch>
-                                </div>
-                            </div>
-                        </div>
-                        <div class="row">
-                            <div class="col-md-12">
-                                <x-chartist class="col-md-12" [data]="data" [type]="'Line'" [options]="options"></x-chartist>
-                            </div>
-                        </div>
-                        <div class="clearfix"></div>
-                    </form>
+                    </div>
                 </div>
             </div>
         </div>

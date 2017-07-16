@@ -5,7 +5,9 @@ import 'rxjs/add/operator/catch';
 import { ActivatedRoute } from '@angular/router';
 import { IDevice } from '../../models/device.interface';
 import { DevicesService } from '../services/devices.service';
-import { IDevicePowerUsage } from "../../models/device-power-usage.interface";
+import { IDevicePowerUsage } from '../../models/device-power-usage.interface';
+import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
+import { NotificationsService } from "angular2-notifications";
 
 @Component({
   selector: 'app-device-details',
@@ -18,9 +20,10 @@ export class DeviceDetailsComponent implements OnInit, OnDestroy {
   device: IDevice = {
     id: 0,
     name: 'loading..',
-    room: 'loading...'
+    room: 'loading...',
+    isOn: false
   };
-  devicePowerUsages: IDevicePowerUsage[];
+  totalUsage: number;
   options = {
     low: 0,
     showArea: true
@@ -34,21 +37,39 @@ export class DeviceDetailsComponent implements OnInit, OnDestroy {
 
   constructor(
     private route: ActivatedRoute,
-    private _devicesService: DevicesService) { }
+    private _devicesService: DevicesService,
+    private _notificationService: NotificationsService,
+    private _navbarTitleService: NavbarTitleService, ) { }
 
   ngOnInit() {
     this.sub = this.route.params.subscribe(params => {
       this.id = +params['id']; // (+) converts string 'id' to a number
-      this._devicesService.getAll().subscribe(d => this.device = d.find(d => 1 === d.id));
+      this._devicesService.getAll().subscribe(d => {
+        this.device = d.find(dev => this.id === dev.id);
+        this._navbarTitleService.updateTitle(this.device.name + ' ( ' + this.device.room + ' )');
+      });
 
-      this._devicesService.getAllUsages().subscribe(
-        d => {
-          this.devicePowerUsages = d.filter(d => 1 === d.id);
-          this.data.labels = this.devicePowerUsages.map(i => i.date);
-          this.data.series[0] = this.devicePowerUsages.map(i => i.KW);
-        });
+      const devicePowerUsages = this._devicesService.getUsage(this.id);
+      this.data.labels = devicePowerUsages.map(i => i.date);
+      this.data.series[0] = devicePowerUsages.map(i => i.KW);
+
+      this.totalUsage = devicePowerUsages.map(u => u.KW).reduce((a, b) => a + b, 0);
       // In a real app: dispatch action to load the details here.
     });
+  }
+
+    toggleOnOff(device: IDevice): void {
+    device.isOn = !device.isOn;
+    this._notificationService.success(
+      'Success',
+      device.name + ' is ' + (device.isOn ? 'ON' : 'OFF'),
+      {
+        showProgressBar: true,
+        pauseOnHover: false,
+        clickToClose: true,
+        maxLength: 20
+      }
+    );
   }
 
   ngOnDestroy() {

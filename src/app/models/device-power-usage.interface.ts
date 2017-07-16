@@ -1,5 +1,5 @@
 export interface IDevicePowerUsage {
   id: number;
-  date: Date;
+  date: string;
   KW: number;
 }

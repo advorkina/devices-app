@@ -14,6 +14,7 @@ import { AppComponent } from './app.component';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';
 import { DeviceDetailsComponent } from './devices/details/device-details.component';
 import { ChartistModule } from 'ng-chartist/src/chartist.component';
+import { SimpleNotificationsModule } from 'angular2-notifications';
 
 const appRoutes: Routes = [
   {
@@ -44,7 +45,8 @@ const appRoutes: Routes = [
     RouterModule.forRoot(appRoutes),
     LbdModule,
     BrowserAnimationsModule,
-    ChartistModule
+    ChartistModule,
+    SimpleNotificationsModule.forRoot()
   ],
   providers: [],
   bootstrap: [AppComponent],

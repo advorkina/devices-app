@@ -5,10 +5,15 @@ import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { NavbarTitleService } from '../../lbd/services/navbar-title.service';
 import { TableData } from '../../lbd/lbd-table/lbd-table.component';
+import { IRoomWithDevices } from './room-with-devices.interface';
+import { DevicesService } from '../services/devices.service';
+import { NotificationsService } from 'angular2-notifications';
+import { IDevice } from "../../models/device.interface";
 
 @Component({
   selector: 'app-devices-list',
   templateUrl: 'devices-list.component.html',
+  providers: [DevicesService],
   animations: [
     trigger('cardtable1', [
       state('*', style({
@@ -35,21 +40,47 @@ import { TableData } from '../../lbd/lbd-table/lbd-table.component';
 })
 
 export class DevicesListComponent implements OnInit {
-  public tableData: TableData;
+  public rooms: IRoomWithDevices[] = [];
 
-  constructor(private navbarTitleService: NavbarTitleService) {
+  constructor(
+    private _navbarTitleService: NavbarTitleService,
+    private _notificationService: NotificationsService,
+    private _devicesService: DevicesService) {
   }
 
   public ngOnInit() {
-    this.navbarTitleService.updateTitle('Table List');
+    this._navbarTitleService.updateTitle('Devices');
 
-    this.tableData = {
-      headerRow: ['Devices', 'Total' ],
-      dataRows: [
-        ['Washing machine', '138 KW' ],
-        ['Coffee', '12 KW' ],
-        ['Microwave', '65 KW' ]
-      ]
-    };
+    this._devicesService.getAll().subscribe(devices => {
+      const rooms: string[] = devices.map(d => d.room).filter((x, i, a) => a.indexOf(x) === i);
+      rooms.forEach(r => {
+        const room: IRoomWithDevices = {
+          room: r,
+          devices: []
+        };
+
+        devices.filter(d => d.room === r).forEach(d => {
+            room.devices.push({
+              device: d,
+              usageKW: this._devicesService.getUsage(d.id).map(u => u.KW).reduce((a, b) => a + b, 0)
+        });});
+
+        this.rooms.push(room);
+      });
+    });
+  }
+
+  toggleOnOff(device: IDevice): void {
+    device.isOn = !device.isOn;
+    this._notificationService.success(
+      'Success',
+      device.name + ' is ' + (device.isOn ? 'ON' : 'OFF'),
+      {
+        showProgressBar: true,
+        pauseOnHover: false,
+        clickToClose: true,
+        maxLength: 20
+      }
+    );
   }
 }

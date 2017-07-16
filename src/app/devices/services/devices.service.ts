@@ -23,16 +23,17 @@ export class DevicesService {
       .catch(this.handleError);
   }
 
-  getUsage(id: number): Observable<IDevicePowerUsage> {
-    return this.http.get('assets/data/devices-power-usage.json')
-      .map((res: Response) => res.json().data)
-      .catch(this.handleError);
-  }
+  getUsage(id: number): IDevicePowerUsage[] {
+    const usages: IDevicePowerUsage[] = [];
+    for (let i = 0; i < 8; i++) {
+      usages.push({
+        date: '0' + (i + 1) + '.07.2017',
+        id: id,
+        KW: Math.floor(Math.random() * 100) + 1
+      });
+    }
 
-  getAllUsages(): Observable<IDevicePowerUsage[]> {
-    return this.http.get('assets/data/devices-power-usage.json')
-      .map((res: Response) => res.json().data)
-      .catch(this.handleError);
+    return usages;
   }
 
   /**

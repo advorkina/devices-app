@@ -25,6 +25,8 @@
             "styles.scss"
         ],
         "scripts": [
+            "../node_modules/jquery/dist/jquery.js",
+            "../node_modules/bootstrap/dist/js/bootstrap.js",
             "assets/js/bootstrap-checkbox-radio-switch.js",
             "assets/js/light-bootstrap-dashboard.js",
             "assets/js/bootstrap-notify.js"

@@ -2,26 +2,37 @@
     "data": [{
         "id": 1,
         "name": "Kitchen Aid",
-        "room": "Kitchen"
+        "room": "Kitchen",
+        "isOn": true
     }, {
         "id": 2,
-        "name": "Mixer",
-        "room": "Kitchen"
+        "name": "Mr. Coffee Smart",
+        "room": "Kitchen",
+        "isOn": false
     }, {
         "id": 3,
-        "name": "Coffee Machine",
-        "room": "Kitchen"
+        "name": "Miele Washing Machine",
+        "room": "Kitchen",
+        "isOn": true
     }, {
         "id": 4,
-        "name": "TV",
-        "room": "Living Room"
+        "name": "Smart TV Samsung",
+        "room": "Living Room",
+        "isOn": true
     }, {
         "id": 5,
-        "name": "Spotify",
-        "room": "Living Room"
+        "name": "Robot Vacuum",
+        "room": "Living Room",
+        "isOn": false
     }, {
         "id": 6,
-        "name": "Samsung Light",
-        "room": "Bedroom"
+        "name": "Philips Hue",
+        "room": "Bedroom",
+        "isOn": false
+    }, {
+        "id": 7,
+        "name": "Nest Cam Indoor",
+        "room": "Bedroom",
+        "isOn": false
     }]
 }

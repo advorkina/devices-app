@@ -4,8 +4,6 @@ interface NodeModule {
   id: string;
 }
 
-interface JQueryStatic {
+interface JQuery {
   notify(options: any, settings: any);
 }
-
-//declare let Chartist: any;

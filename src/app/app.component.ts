@@ -8,11 +8,15 @@ import { NavItem, NavItemType } from './lbd/lbd.module';
 })
 export class AppComponent implements OnInit {
   public navItems: NavItem[];
-
+  public options = {
+    position: ['bottom', 'left'],
+    timeOut: 0,
+    lastOnBottom: true,
+  };
   ngOnInit(): void {
     this.navItems = [
       { type: NavItemType.Sidebar, title: 'Dashboard', routerLink: 'dashboard', iconClass: 'pe-7s-graph' },
       { type: NavItemType.Sidebar, title: 'Devices', routerLink: 'devices-list', iconClass: 'pe-7s-radio' },
-   ];
+    ];
   }
 }

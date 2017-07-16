@@ -3,7 +3,9 @@
     </lbd-sidebar>
 
     <div class="main-panel">
+        <lbd-navbar [navItems]="navItems"></lbd-navbar>
         <router-outlet></router-outlet>
     </div>
     <lbd-close-layer></lbd-close-layer>
 </div>
+<simple-notifications [options]="options"></simple-notifications>
