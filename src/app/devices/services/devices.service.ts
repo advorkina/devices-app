@@ -18,7 +18,7 @@ export class DevicesService {
   }
 
   getAll(): Observable<IDevice[]> {
-    return this.http.get('assets/data/devices.json')
+    return this.http.get('assets/data/devices.txt')
       .map((res: Response) => res.json().data)
       .catch(this.handleError);
   }
