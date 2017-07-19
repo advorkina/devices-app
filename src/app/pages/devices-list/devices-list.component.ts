@@ -5,13 +5,12 @@ import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
 import { IRoomWithDevices } from './room-with-devices.interface';
-import { DevicesService } from '../services/devices.service';
+import { DevicesService } from '../../api/devices.service';
 import { IDevice } from '../../shared/models/device.interface';
 
 @Component({
   selector: 'app-devices-list',
   templateUrl: 'devices-list.component.html',
-  providers: [DevicesService],
   animations: [
     trigger('cardtable1', [
       state('*', style({

@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DevicesService } from '../../services/devices.service';
+import { DevicesService } from '../../../api/devices.service';
 
 @Component({
   selector: 'app-power-usage-chart',

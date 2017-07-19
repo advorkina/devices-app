@@ -1,11 +1,10 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { DevicesService } from '../services/devices.service';
+import { DevicesService } from '../../api/devices.service';
 
 @Component({
   selector: 'app-dashboard',
   templateUrl: 'dashboard.component.html',
-  providers: [DevicesService],
   animations: [
     trigger('cardemail', [
       state('*', style({

@@ -4,6 +4,7 @@ import { FormsModule } from '@angular/forms';
 import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
+import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
 import { LbdModule } from './template/lbd/lbd.module';
 import { TemplateModule } from './template/template.module';
@@ -18,6 +19,8 @@ import { ChartistModule } from 'ng-chartist/src/chartist.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { PowerUsageChartComponent } from './pages/components/power-usage-chart/power-usage-chart.component';
 import { PowerSwitchComponent } from './pages/components/power-switch/power-switch.component';
+import { DevicesService } from './api/devices.service';
+import { InMemotyDevicesApiService } from './api/in-memory-devices-api.service';
 
 const appRoutes: Routes = [
   {
@@ -52,9 +55,10 @@ const appRoutes: Routes = [
     TemplateModule,
     BrowserAnimationsModule,
     ChartistModule,
-    SimpleNotificationsModule.forRoot()
+    SimpleNotificationsModule.forRoot(),
+    InMemoryWebApiModule.forRoot(InMemotyDevicesApiService)
   ],
-  providers: [],
+  providers: [DevicesService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

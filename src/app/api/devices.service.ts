@@ -1,25 +1,36 @@
 import { Injectable } from '@angular/core';
-import { Http, Response } from '@angular/http';
+import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
-import { IDevice } from '../../shared/models/device.interface';
-import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
+import { IDevice } from '../shared/models/device.interface';
+import { IDevicePowerUsage } from '../shared/models/device-power-usage.interface';
+
+import 'rxjs/add/operator/toPromise';
 
 @Injectable()
 export class DevicesService {
+  private devicesUrl = 'api/devices';  // URL to web api
+  private headers = new Headers({ 'Content-Type': 'application/json' });
+
   constructor(private http: Http) { }
 
   get(id: number): Observable<IDevice> {
-    const device: Observable<IDevice> = this.http.get('data/devices.json')
-      .map((res: Response) => (<IDevice[]>(res.json().data))[0])
+    const url = `${this.devicesUrl}/${id}`;
+    return this.http.get(url)
+      .map((res: Response) => (res.json().data as IDevice))
       .catch(this.handleError);
-
-    console.log(device);
-    return device;
   }
 
   getAll(): Observable<IDevice[]> {
-    return this.http.get('assets/data/devices.txt')
-      .map((res: Response) => res.json().data)
+    return this.http.get(this.devicesUrl)
+      .map((res: Response) => res.json().data as IDevice[])
+      .catch(this.handleError);
+  }
+
+  update(device: IDevice): Observable<IDevice> {
+    const url = `${this.devicesUrl}/${device.id}`;
+    return this.http
+      .put(url, JSON.stringify(device), { headers: this.headers })
+      .map(() => device)
       .catch(this.handleError);
   }
 

@@ -4,14 +4,13 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ActivatedRoute } from '@angular/router';
 import { IDevice } from '../../shared/models/device.interface';
-import { DevicesService } from '../services/devices.service';
+import { DevicesService } from '../../api/devices.service';
 import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
 import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
 
 @Component({
   selector: 'app-device-details',
-  templateUrl: 'device-details.component.html',
-  providers: [DevicesService]
+  templateUrl: 'device-details.component.html'
 })
 
 export class DeviceDetailsComponent implements OnInit, OnDestroy {
