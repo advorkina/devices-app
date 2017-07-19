@@ -13,11 +13,9 @@ export class FooterLayoutComponent implements OnInit {
 
   public ngOnInit() {
     this.footerItems = [
-      { title: 'Home', routerLink: '' },
-      { title: 'Company', routerLink: '' },
-      { title: 'Portfolio', routerLink: '' },
-      { title: 'Blog', routerLink: '' }
+      { title: 'Dashboard', routerLink: '/dashboard' },
+      { title: 'Devices', routerLink: '/devices-list' }
     ];
-    this.copyright = '&copy; 2016 <a href="http://www.creative-tim.com">Creative Tim</a>, made with love for a better web';
+    this.copyright = '&copy; 2017 <a href="https://github.com/advorkina/devices-app">Anastasia</a>';
   }
 }

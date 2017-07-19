@@ -22,17 +22,8 @@ import { PowerSwitchComponent } from './pages/components/power-switch/power-swit
 import { DevicesService } from './api/devices.service';
 import { InMemotyDevicesApiService } from './api/in-memory-devices-api.service';
 
-const appRoutes: Routes = [
-  {
-    path: '', component: FooterLayoutComponent, children:
-    [
-      { path: 'dashboard', component: DashboardComponent },
-      { path: 'devices-list', component: DevicesListComponent },
-      { path: 'device-details/:id', component: DeviceDetailsComponent },
-      { path: '**', redirectTo: 'dashboard' }
-    ]
-  }
-];
+import { AppRoutingModule } from './app-routing.module';
+import { AuthGuard } from './shared/auth/auth.guard';
 
 @NgModule({
   declarations: [
@@ -50,7 +41,7 @@ const appRoutes: Routes = [
     BrowserModule,
     FormsModule,
     HttpModule,
-    RouterModule.forRoot(appRoutes),
+    AppRoutingModule,
     LbdModule,
     TemplateModule,
     BrowserAnimationsModule,
@@ -58,7 +49,7 @@ const appRoutes: Routes = [
     SimpleNotificationsModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemotyDevicesApiService)
   ],
-  providers: [DevicesService],
+  providers: [DevicesService, AuthGuard],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
