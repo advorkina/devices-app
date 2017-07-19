@@ -1,13 +1,14 @@
 import { Component, OnInit } from '@angular/core';
-import 'rxjs/add/observable/throw';
-import 'rxjs/add/operator/map';
-import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
 import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
-import { IRoomWithDevices } from './room-with-devices.interface';
+import { RoomWithDevices } from './room-with-devices.interface';
 import { DevicesService } from '../../api/devices.service';
 import { Device } from '../../shared/models/device.interface';
 import { DevicesPowerUsageService } from '../../api/devices-power-usage.service';
+
+import 'rxjs/add/observable/throw';
+import 'rxjs/add/operator/map';
+import 'rxjs/add/operator/catch';
 
 @Component({
   selector: 'app-devices-list',
@@ -38,7 +39,7 @@ import { DevicesPowerUsageService } from '../../api/devices-power-usage.service'
 })
 
 export class DevicesListComponent implements OnInit {
-  public rooms: IRoomWithDevices[] = [];
+  public rooms: RoomWithDevices[] = [];
 
   constructor(
     private _navbarTitleService: NavbarTitleService,
@@ -52,7 +53,7 @@ export class DevicesListComponent implements OnInit {
     this._devicesService.getAll().subscribe(devices => {
       const rooms: string[] = devices.map(d => d.room).filter((x, i, a) => a.indexOf(x) === i);
       rooms.forEach(r => {
-        const room: IRoomWithDevices = {
+        const room: RoomWithDevices = {
           room: r,
           devices: []
         };

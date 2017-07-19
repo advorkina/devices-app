@@ -10,7 +10,7 @@ export class AppComponent implements OnInit {
   public options = {
     position: ['bottom', 'left'],
     timeOut: 0,
-    lastOnBottom: true,
+    lastOnBottom: true
   };
   ngOnInit(): void {
     this.navItems = [

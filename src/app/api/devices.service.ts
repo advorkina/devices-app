@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Device } from '../shared/models/device.interface';
-import { IDevicePowerUsage } from '../shared/models/device-power-usage.interface';
+import { DevicePowerUsage } from '../shared/models/device-power-usage.interface';
 
 import 'rxjs/add/operator/toPromise';
 

@@ -2,7 +2,7 @@ import { Injectable } from '@angular/core';
 import { Http, Response, Headers } from '@angular/http';
 import { Observable } from 'rxjs/Observable';
 import { Device } from '../shared/models/device.interface';
-import { IDevicePowerUsage } from '../shared/models/device-power-usage.interface';
+import { DevicePowerUsage } from '../shared/models/device-power-usage.interface';
 
 import 'rxjs/add/operator/toPromise';
 
@@ -14,8 +14,8 @@ export class DevicesPowerUsageService {
 
   constructor(private http: Http) { }
 
-  getByDevice(id: number): IDevicePowerUsage[] {
-    const usages: IDevicePowerUsage[] = [];
+  getByDevice(id: number): DevicePowerUsage[] {
+    const usages: DevicePowerUsage[] = [];
     for (let i = 0; i < 8; i++) {
       usages.push({
         date: '0' + (i + 1) + '.07',

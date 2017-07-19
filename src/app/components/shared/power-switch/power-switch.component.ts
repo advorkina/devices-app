@@ -28,7 +28,7 @@ export class PowerSwitchComponent implements OnInit {
         showProgressBar: true,
         pauseOnHover: false,
         clickToClose: true,
-        maxLength: 20
+        maxLength: 100
       }
     );
     });

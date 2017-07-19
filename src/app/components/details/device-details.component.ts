@@ -5,10 +5,10 @@ import 'rxjs/add/operator/catch';
 import { ActivatedRoute } from '@angular/router';
 import { Device } from '../../shared/models/device.interface';
 import { DevicesService } from '../../api/devices.service';
-import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
+import { DevicePowerUsage } from '../../shared/models/device-power-usage.interface';
 import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
 import { Location } from '@angular/common';
-import { DevicesPowerUsageService } from "../../api/devices-power-usage.service";
+import { DevicesPowerUsageService } from '../../api/devices-power-usage.service';
 
 @Component({
   selector: 'app-device-details',
@@ -16,7 +16,6 @@ import { DevicesPowerUsageService } from "../../api/devices-power-usage.service"
 })
 
 export class DeviceDetailsComponent implements OnInit {
-  public id: number;
   public device: Device = {
     id: 0,
     name: 'loading..',
@@ -34,13 +33,13 @@ export class DeviceDetailsComponent implements OnInit {
 
   ngOnInit() {
     this.route.params.subscribe(params => {
-      this.id = +params['id']; // (+) converts string 'id' to a number
+      const id = +params['id']; // (+) converts string 'id' to a number
       this._devicesService.getAll().subscribe(d => {
-        this.device = d.find(dev => this.id === dev.id);
+        this.device = d.find(dev => id === dev.id);
         this._navbarTitleService.updateTitle(this.device.name + ' ( ' + this.device.room + ' )');
       });
 
-      this.totalUsage = this._devicesPowerUsageService.getByDevice(this.id).map(u => u.KW).reduce((a, b) => a + b, 0);
+      this.totalUsage = this._devicesPowerUsageService.getByDevice(id).map(u => u.KW).reduce((a, b) => a + b, 0);
       // In a real app: dispatch action to load the details here.
     });
   }
