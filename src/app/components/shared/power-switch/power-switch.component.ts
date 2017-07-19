@@ -1,5 +1,5 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { IDevice } from '../../../shared/models/device.interface';
+import { Device } from '../../../shared/models/device.interface';
 import { NotificationsService } from 'angular2-notifications';
 import { DevicesService } from '../../../api/devices.service';
 
@@ -9,7 +9,7 @@ import { DevicesService } from '../../../api/devices.service';
 })
 export class PowerSwitchComponent implements OnInit {
   @Input()
-  public device: IDevice;
+  public device: Device;
 
   constructor(
     private _notificationService: NotificationsService,

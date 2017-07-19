@@ -1,5 +1,6 @@
 import { Component, OnInit, Input } from '@angular/core';
 import { DevicesService } from '../../../api/devices.service';
+import { DevicesPowerUsageService } from '../../../api/devices-power-usage.service';
 
 @Component({
   selector: 'app-power-usage-chart',
@@ -20,12 +21,11 @@ export class PowerUsageChartComponent implements OnInit {
     'series': []
   };
 
-  constructor(private _devicesService: DevicesService) { }
+  constructor(private _devicePowerUsageService: DevicesPowerUsageService) { }
 
   ngOnInit() {
-    const devicePowerUsages = this._devicesService.getUsage(this.deviceId);
+    const devicePowerUsages = this._devicePowerUsageService.getByDevice(this.deviceId);
     this.data.labels = devicePowerUsages.map(i => i.date);
     this.data.series[0] = devicePowerUsages.map(i => i.KW);
   }
-
 }

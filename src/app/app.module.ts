@@ -5,7 +5,6 @@ import { HttpModule } from '@angular/http';
 import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
-
 import { ViewComponentsModule } from './shared/components/view-components.module';
 import { FooterLayoutComponent } from './shared/components/footer-layout/footer-layout.component';
 import { DashboardComponent } from './components/dashboard/dashboard.component';
@@ -20,9 +19,10 @@ import { PowerUsageChartComponent } from './components/shared/power-usage-chart/
 import { PowerSwitchComponent } from './components/shared/power-switch/power-switch.component';
 import { DevicesService } from './api/devices.service';
 import { InMemotyDevicesApiService } from './api/in-memory-devices-api.service';
-
+import { DevicesPowerUsageService } from './api/devices-power-usage.service';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './shared/auth/auth.guard';
+
 
 @NgModule({
   declarations: [
@@ -47,7 +47,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
     SimpleNotificationsModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemotyDevicesApiService)
   ],
-  providers: [DevicesService, AuthGuard],
+  providers: [DevicesService, AuthGuard, DevicesPowerUsageService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })

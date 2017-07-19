@@ -1,4 +1,4 @@
-export interface IDevice {
+export interface Device {
   id: number;
   name: string;
   room: string;

@@ -6,7 +6,8 @@ import { trigger, state, style, transition, animate, keyframes } from '@angular/
 import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
 import { IRoomWithDevices } from './room-with-devices.interface';
 import { DevicesService } from '../../api/devices.service';
-import { IDevice } from '../../shared/models/device.interface';
+import { Device } from '../../shared/models/device.interface';
+import { DevicesPowerUsageService } from '../../api/devices-power-usage.service';
 
 @Component({
   selector: 'app-devices-list',
@@ -41,7 +42,8 @@ export class DevicesListComponent implements OnInit {
 
   constructor(
     private _navbarTitleService: NavbarTitleService,
-    private _devicesService: DevicesService) {
+    private _devicesService: DevicesService,
+    private _devicesPowerUsageService: DevicesPowerUsageService) {
   }
 
   public ngOnInit() {
@@ -58,7 +60,7 @@ export class DevicesListComponent implements OnInit {
         devices.filter(d => d.room === r).forEach(d => {
             room.devices.push({
               device: d,
-              usageKW: this._devicesService.getUsage(d.id).map(u => u.KW).reduce((a, b) => a + b, 0)
+              usageKW: this._devicesPowerUsageService.getByDevice(d.id).map(u => u.KW).reduce((a, b) => a + b, 0)
         }); });
 
         this.rooms.push(room);

@@ -57,7 +57,9 @@ export interface NavItem {
     LbdTaskListComponent,
     LbdTableComponent,
     LbdUserProfileComponent,
-    LbdCloseLayerComponent
+    LbdCloseLayerComponent,
+    LbdSidebarComponent,
+    LbdSidebarItemsComponent
   ]
 })
 export class ViewComponentsModule { }

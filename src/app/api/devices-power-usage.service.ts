@@ -7,31 +7,24 @@ import { IDevicePowerUsage } from '../shared/models/device-power-usage.interface
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class DevicesService {
+export class DevicesPowerUsageService {
   private devicesUrl = 'api/devices';  // URL to web api
+
   private headers = new Headers({ 'Content-Type': 'application/json' });
 
   constructor(private http: Http) { }
 
-  get(id: number): Observable<Device> {
-    const url = `${this.devicesUrl}/${id}`;
-    return this.http.get(url)
-      .map((res: Response) => (res.json().data as Device))
-      .catch(this.handleError);
-  }
+  getByDevice(id: number): IDevicePowerUsage[] {
+    const usages: IDevicePowerUsage[] = [];
+    for (let i = 0; i < 8; i++) {
+      usages.push({
+        date: '0' + (i + 1) + '.07',
+        id: id,
+        KW: Math.floor(Math.random() * 100) + 1
+      });
+    }
 
-  getAll(): Observable<Device[]> {
-    return this.http.get(this.devicesUrl)
-      .map((res: Response) => res.json().data as Device[])
-      .catch(this.handleError);
-  }
-
-  update(device: Device): Observable<Device> {
-    const url = `${this.devicesUrl}/${device.id}`;
-    return this.http
-      .put(url, JSON.stringify(device), { headers: this.headers })
-      .map(() => device)
-      .catch(this.handleError);
+    return usages;
   }
 
   /**
@@ -44,4 +37,3 @@ export class DevicesService {
     return Observable.throw(errMsg);
   }
 }
-

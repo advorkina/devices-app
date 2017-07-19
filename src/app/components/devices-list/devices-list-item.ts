@@ -1,6 +1,6 @@
-import { IDevice } from '../../shared/models/device.interface';
+import { Device } from '../../shared/models/device.interface';
 
 export interface IDeviceListItem {
-  device: IDevice;
+  device: Device;
   usageKW: number;
 }
