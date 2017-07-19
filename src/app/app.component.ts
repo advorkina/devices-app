@@ -1,5 +1,5 @@
 import { Component, OnInit } from '@angular/core';
-import { NavItem, NavItemType } from './template/lbd/lbd.module';
+import { NavItem, NavItemType } from './shared/components/view-components.module';
 
 @Component({
   selector: 'app-root',

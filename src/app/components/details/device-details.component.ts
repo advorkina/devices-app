@@ -6,7 +6,7 @@ import { ActivatedRoute } from '@angular/router';
 import { IDevice } from '../../shared/models/device.interface';
 import { DevicesService } from '../../api/devices.service';
 import { IDevicePowerUsage } from '../../shared/models/device-power-usage.interface';
-import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
+import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
 import { Location } from '@angular/common';
 
 @Component({

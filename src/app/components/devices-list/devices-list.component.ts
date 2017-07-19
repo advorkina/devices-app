@@ -3,7 +3,7 @@ import 'rxjs/add/observable/throw';
 import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { NavbarTitleService } from '../../template/lbd/services/navbar-title.service';
+import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
 import { IRoomWithDevices } from './room-with-devices.interface';
 import { DevicesService } from '../../api/devices.service';
 import { IDevice } from '../../shared/models/device.interface';

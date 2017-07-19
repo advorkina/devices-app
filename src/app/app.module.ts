@@ -6,19 +6,18 @@ import { RouterModule, Routes } from '@angular/router';
 import { BrowserAnimationsModule } from '@angular/platform-browser/animations';
 import { InMemoryWebApiModule } from 'angular-in-memory-web-api';
 
-import { LbdModule } from './template/lbd/lbd.module';
-import { TemplateModule } from './template/template.module';
-import { FooterLayoutComponent } from './template/footer-layout/footer-layout.component';
-import { DashboardComponent } from './pages/dashboard/dashboard.component';
-import { DevicesListComponent } from './pages/devices-list/devices-list.component';
-import { IconsComponent } from './template/icons/icons.component';
+import { ViewComponentsModule } from './shared/components/view-components.module';
+import { FooterLayoutComponent } from './shared/components/footer-layout/footer-layout.component';
+import { DashboardComponent } from './components/dashboard/dashboard.component';
+import { DevicesListComponent } from './components/devices-list/devices-list.component';
+import { IconsComponent } from './shared/components/icons/icons.component';
 import { AppComponent } from './app.component';
 import { SwitchComponent } from 'angular2-bootstrap-switch/components';
-import { DeviceDetailsComponent } from './pages/details/device-details.component';
+import { DeviceDetailsComponent } from './components/details/device-details.component';
 import { ChartistModule } from 'ng-chartist/src/chartist.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
-import { PowerUsageChartComponent } from './pages/components/power-usage-chart/power-usage-chart.component';
-import { PowerSwitchComponent } from './pages/components/power-switch/power-switch.component';
+import { PowerUsageChartComponent } from './components/shared/power-usage-chart/power-usage-chart.component';
+import { PowerSwitchComponent } from './components/shared/power-switch/power-switch.component';
 import { DevicesService } from './api/devices.service';
 import { InMemotyDevicesApiService } from './api/in-memory-devices-api.service';
 
@@ -42,8 +41,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
     FormsModule,
     HttpModule,
     AppRoutingModule,
-    LbdModule,
-    TemplateModule,
+    ViewComponentsModule,
     BrowserAnimationsModule,
     ChartistModule,
     SimpleNotificationsModule.forRoot(),
