@@ -1,4 +1,4 @@
-import { IDeviceListItem } from './devices-list-item';
+import { IDeviceListItem } from '../../shared/models/devices-list-item';
 
 export interface RoomWithDevices {
   room: string;

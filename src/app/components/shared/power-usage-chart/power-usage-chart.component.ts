@@ -1,11 +1,11 @@
 import { Component, OnInit, Input } from '@angular/core';
-import { DevicesService } from '../../../api/devices.service';
-import { DevicesPowerUsageService } from '../../../api/devices-power-usage.service';
+import { DevicesProvider } from '../../../api/devices.provider';
+import { DevicesPowerUsageProvider } from '../../../api/devices-power-usage.provider';
 
 @Component({
   selector: 'app-power-usage-chart',
   templateUrl: './power-usage-chart.component.html',
-  providers: [DevicesService]
+  providers: [DevicesProvider]
 })
 export class PowerUsageChartComponent implements OnInit {
   @Input()
@@ -21,7 +21,7 @@ export class PowerUsageChartComponent implements OnInit {
     'series': []
   };
 
-  constructor(private _devicePowerUsageService: DevicesPowerUsageService) { }
+  constructor(private _devicePowerUsageService: DevicesPowerUsageProvider) { }
 
   ngOnInit() {
     const devicePowerUsages = this._devicePowerUsageService.getByDevice(this.deviceId);

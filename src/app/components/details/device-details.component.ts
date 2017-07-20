@@ -4,11 +4,11 @@ import 'rxjs/add/operator/map';
 import 'rxjs/add/operator/catch';
 import { ActivatedRoute } from '@angular/router';
 import { Device } from '../../shared/models/device.interface';
-import { DevicesService } from '../../api/devices.service';
+import { DevicesProvider } from '../../api/devices.provider';
 import { DevicePowerUsage } from '../../shared/models/device-power-usage.interface';
 import { NavbarTitleService } from '../../shared/components/lbd/services/navbar-title.service';
 import { Location } from '@angular/common';
-import { DevicesPowerUsageService } from '../../api/devices-power-usage.service';
+import { DevicesPowerUsageProvider } from '../../api/devices-power-usage.provider';
 
 @Component({
   selector: 'app-device-details',
@@ -27,9 +27,9 @@ export class DeviceDetailsComponent implements OnInit {
   constructor(
     private route: ActivatedRoute,
     private location: Location,
-    private _devicesService: DevicesService,
+    private _devicesService: DevicesProvider,
     private _navbarTitleService: NavbarTitleService,
-    private _devicesPowerUsageService: DevicesPowerUsageService) { }
+    private _devicesPowerUsageService: DevicesPowerUsageProvider) { }
 
   ngOnInit() {
     this.route.params.subscribe(params => {

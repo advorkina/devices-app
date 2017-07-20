@@ -1,6 +1,6 @@
 import { Component, OnInit } from '@angular/core';
 import { trigger, state, style, transition, animate, keyframes } from '@angular/animations';
-import { DevicesService } from '../../api/devices.service';
+import { DevicesProvider } from '../../api/devices.provider';
 
 @Component({
   selector: 'app-dashboard',
@@ -55,7 +55,7 @@ export class DashboardComponent implements OnInit {
   public totalDevicesNumber: number;
   public switchedOnDevicesNumber: number;
 
-  constructor(private _devicesService: DevicesService) { }
+  constructor(private _devicesService: DevicesProvider) { }
 
   ngOnInit() {
     this._devicesService.getAll().subscribe(devices => {

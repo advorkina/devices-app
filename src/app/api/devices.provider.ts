@@ -7,7 +7,7 @@ import { DevicePowerUsage } from '../shared/models/device-power-usage.interface'
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
-export class DevicesService {
+export class DevicesProvider {
   private devicesUrl = 'api/devices';  // URL to web api
   private headers = new Headers({ 'Content-Type': 'application/json' });
 

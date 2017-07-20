@@ -17,11 +17,12 @@ import { ChartistModule } from 'ng-chartist/src/chartist.component';
 import { SimpleNotificationsModule } from 'angular2-notifications';
 import { PowerUsageChartComponent } from './components/shared/power-usage-chart/power-usage-chart.component';
 import { PowerSwitchComponent } from './components/shared/power-switch/power-switch.component';
-import { DevicesService } from './api/devices.service';
+import { DevicesProvider } from './api/devices.provider';
 import { InMemotyDevicesApiService } from './api/in-memory-devices-api.service';
-import { DevicesPowerUsageService } from './api/devices-power-usage.service';
+import { DevicesPowerUsageProvider } from './api/devices-power-usage.provider';
 import { AppRoutingModule } from './app-routing.module';
 import { AuthGuard } from './shared/auth/auth.guard';
+import { DevicesService } from './shared/services/devices.service';
 
 
 @NgModule({
@@ -47,7 +48,7 @@ import { AuthGuard } from './shared/auth/auth.guard';
     SimpleNotificationsModule.forRoot(),
     InMemoryWebApiModule.forRoot(InMemotyDevicesApiService)
   ],
-  providers: [DevicesService, AuthGuard, DevicesPowerUsageService],
+  providers: [DevicesProvider, AuthGuard, DevicesPowerUsageProvider, DevicesService],
   bootstrap: [AppComponent],
   schemas: [CUSTOM_ELEMENTS_SCHEMA, NO_ERRORS_SCHEMA]
 })
