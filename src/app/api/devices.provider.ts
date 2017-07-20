@@ -4,6 +4,7 @@ import { Observable } from 'rxjs/Observable';
 import { Device } from '../shared/models/device.interface';
 import { DevicePowerUsage } from '../shared/models/device-power-usage.interface';
 
+import 'rxjs/Rx';
 import 'rxjs/add/operator/toPromise';
 
 @Injectable()
